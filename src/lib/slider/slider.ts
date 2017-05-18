@@ -227,7 +227,14 @@ export class MdSlider extends _MdSliderMixinBase
       return this.value.toFixed(this._roundLabelTo);
     }
 
-    return this.value;
+    // return this.value;
+
+    let displayValue = this.value.toString();
+    displayValue = 'R$' + displayValue.substr( 0 , displayValue.length - 3)
+                    + '.'
+                    + displayValue.substr( displayValue.length - 3 , 3);
+
+    return displayValue;
   }
 
   /** onTouch function registered via registerOnTouch (ControlValueAccessor). */
